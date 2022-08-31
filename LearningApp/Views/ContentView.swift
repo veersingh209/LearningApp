@@ -20,8 +20,16 @@ struct ContentView: View {
                 if model.currentModule != nil {
                 
                     ForEach(0..<model.currentModule!.content.lessons.count) { index in
-                        
-                        ContentView_RowCard(index: index)
+                        NavigationLink {
+                            ContentView_Details()
+                                .onAppear {
+                                    model.startLesson(index)
+                                }
+                        } label: {
+                            ContentView_RowCard(index: index)
+                        }
+                        .buttonStyle(.plain)
+
                     }
                 }
             }
