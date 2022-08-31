@@ -38,8 +38,19 @@ struct HomeView: View {
                                 })
                             .buttonStyle(PlainButtonStyle())
                             
-                            HomeView_RowCard(image: module.test.image, category: "\(module.category) Test", description: module.test.description, lessonsCount: module.test.questions.count, time: module.test.time)
-                            
+                            NavigationLink(
+                                destination:
+                                    TestView()
+                                    .onAppear (perform: {
+                                        model.startTest(module.id)
+                                    }),
+                                tag: module.id,
+                                selection: $model.selectedTest,
+                                label: {
+                                    HomeView_RowCard(image: module.test.image, category: "\(module.category) Test", description: module.test.description, lessonsCount: module.test.questions.count, time: module.test.time)
+                                })
+                            .buttonStyle(PlainButtonStyle())
+
                         }
                     }
                     .padding(.top)

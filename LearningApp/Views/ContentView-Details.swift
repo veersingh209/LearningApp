@@ -23,7 +23,7 @@ struct ContentView_Details: View {
                 VideoPlayer(player: AVPlayer(url: url!))
             }
             
-            ContentView_Details_Description()
+            UITextViews()
             
             if model.hasNextLesson() {
                 Button {
@@ -59,7 +59,7 @@ struct ContentView_Details: View {
                             .shadow(radius: 5)
                         
                         CustomButton(
-                            buttonText: ("Complete Lesson"),
+                            buttonText: ("Next Lesson: \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)"),
                             buttonColor: Color.green,
                             buttonTextColor: Color.white
                         )

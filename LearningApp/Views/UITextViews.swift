@@ -1,5 +1,5 @@
 //
-//  ContentView-Details-Description.swift
+//  UITextViews.swift
 //  LearningApp
 //
 //  Created by Veer Singh on 8/31/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView_Details_Description: UIViewRepresentable {
+struct UITextViews: UIViewRepresentable {
     
     @EnvironmentObject var model: ContentModel
     
@@ -19,7 +19,7 @@ struct ContentView_Details_Description: UIViewRepresentable {
     }
     
     func updateUIView(_ textView: UITextView, context: Context) {
-        textView.attributedText = model.lessonTextDescription
+        textView.attributedText = model.text
         
         textView.scrollRectToVisible(CGRect(x: 0, y: 0, width: 1, height: 1), animated: false)
     }
@@ -27,8 +27,8 @@ struct ContentView_Details_Description: UIViewRepresentable {
 }
 
 
-struct ContentView_Details_Description_Previews: PreviewProvider {
+struct UITextViews_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView_Details_Description()
+        UITextViews()
     }
 }
