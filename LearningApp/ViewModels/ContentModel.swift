@@ -12,6 +12,7 @@ class ContentModel: ObservableObject {
     @Published var modules = [Module]()
     @Published var currentModule: Module?
     @Published var currentLesson: Lessons?
+    @Published var lessonTextDescription = NSAttributedString()
     
     var currentModuleIndex = 0
     var currentLessonIndex = 0
@@ -80,7 +81,7 @@ class ContentModel: ObservableObject {
         }
         
         currentLesson = currentModule!.content.lessons[currentLessonIndex]
-        
+        lessonTextDescription = textStyling(currentLesson!.explanation)
     }
     
     func hasNextLesson() -> Bool {
@@ -93,10 +94,36 @@ class ContentModel: ObservableObject {
         
         if currentLessonIndex < currentModule!.content.lessons.count {
             currentLesson = currentModule!.content.lessons[currentLessonIndex]
+            lessonTextDescription = textStyling(currentLesson!.explanation)
         } else {
             currentLessonIndex = 0
             currentLesson = nil
         }
         
     }
+    
+    private func textStyling(_ htmlString: String) -> NSAttributedString {
+        
+        var finalString = NSAttributedString()
+        var data = Data()
+        
+        if styleData != nil {
+            data.append(styleData!)
+        }
+        
+        data.append(Data(htmlString.utf8))
+        
+        
+        do {
+            let attributedString = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+                
+                finalString = attributedString
+            
+        } catch {
+            print("Error: Unable to create attributed string for lesson description")
+        }
+
+        return finalString
+    }
+    
 }

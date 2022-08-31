@@ -23,6 +23,8 @@ struct ContentView_Details: View {
                 VideoPlayer(player: AVPlayer(url: url!))
             }
             
+            ContentView_Details_Description()
+            
             if model.hasNextLesson() {
                 Button {
                     model.nextLesson()
@@ -46,7 +48,10 @@ struct ContentView_Details: View {
 
             }
             
+            
+            
         }
+        .navigationTitle(model.currentLesson?.title ?? " ")
         .padding()
         
     }

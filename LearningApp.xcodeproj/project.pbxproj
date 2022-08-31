@@ -14,6 +14,7 @@
 		481712F028BFDDB700813993 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 481712EF28BFDDB700813993 /* AVKit.framework */; };
 		481712F228BFDDD000813993 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481712F128BFDDD000813993 /* Constants.swift */; };
 		481712F428BFE15700813993 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481712F328BFE15700813993 /* CustomButton.swift */; };
+		481712F628BFF53000813993 /* ContentView-Details-Description.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481712F528BFF53000813993 /* ContentView-Details-Description.swift */; };
 		4897A9D828B82A490029C134 /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897A9D728B82A490029C134 /* LearningApp.swift */; };
 		4897A9DA28B82A490029C134 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897A9D928B82A490029C134 /* HomeView.swift */; };
 		4897A9DC28B82A4A0029C134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4897A9DB28B82A4A0029C134 /* Assets.xcassets */; };
@@ -32,6 +33,7 @@
 		481712EF28BFDDB700813993 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
 		481712F128BFDDD000813993 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		481712F328BFE15700813993 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		481712F528BFF53000813993 /* ContentView-Details-Description.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView-Details-Description.swift"; sourceTree = "<group>"; };
 		4897A9D428B82A490029C134 /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4897A9D728B82A490029C134 /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		4897A9D928B82A490029C134 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				481712E828B8587600813993 /* ContentView.swift */,
 				481712EA28B85D3400813993 /* ContentView-RowCard.swift */,
 				481712EC28BFDC4100813993 /* ContentView-Details.swift */,
+				481712F528BFF53000813993 /* ContentView-Details-Description.swift */,
 				481712F328BFE15700813993 /* CustomButton.swift */,
 			);
 			path = Views;
@@ -221,6 +224,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481712F628BFF53000813993 /* ContentView-Details-Description.swift in Sources */,
 				4897A9DA28B82A490029C134 /* HomeView.swift in Sources */,
 				4897A9D828B82A490029C134 /* LearningApp.swift in Sources */,
 				481712E928B8587600813993 /* ContentView.swift in Sources */,
