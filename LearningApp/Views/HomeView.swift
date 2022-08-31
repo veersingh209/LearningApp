@@ -25,14 +25,17 @@ struct HomeView: View {
                         
                         ForEach(model.modules) { module in
                             
-                            NavigationLink(destination: {
-                                ContentView()
-                                    .onAppear {
+                            NavigationLink(
+                                destination:
+                                    ContentView()
+                                    .onAppear (perform: {
                                         model.startingModule(module.id)
-                                    }
-                            }, label: {
-                                HomeView_RowCard(image: module.content.image, category: "Learn \(module.category)", description: module.content.description, lessonsCount: module.content.lessons.count, time: module.content.time)
-                            })
+                                    }),
+                                tag: module.id,
+                                selection: $model.selectedContent,
+                                label: {
+                                    HomeView_RowCard(image: module.content.image, category: "Learn \(module.category)", description: module.content.description, lessonsCount: module.content.lessons.count, time: module.content.time)
+                                })
                             .buttonStyle(PlainButtonStyle())
                             
                             HomeView_RowCard(image: module.test.image, category: "\(module.category) Test", description: module.test.description, lessonsCount: module.test.questions.count, time: module.test.time)
