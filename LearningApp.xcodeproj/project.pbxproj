@@ -16,6 +16,7 @@
 		481712F428BFE15700813993 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481712F328BFE15700813993 /* CustomButton.swift */; };
 		481712F628BFF53000813993 /* UITextViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481712F528BFF53000813993 /* UITextViews.swift */; };
 		481712F828C01B9C00813993 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481712F728C01B9C00813993 /* TestView.swift */; };
+		481712FA28C03B1A00813993 /* TestView-Results.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481712F928C03B1A00813993 /* TestView-Results.swift */; };
 		4897A9D828B82A490029C134 /* LearningApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897A9D728B82A490029C134 /* LearningApp.swift */; };
 		4897A9DA28B82A490029C134 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897A9D928B82A490029C134 /* HomeView.swift */; };
 		4897A9DC28B82A4A0029C134 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4897A9DB28B82A4A0029C134 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		481712F328BFE15700813993 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		481712F528BFF53000813993 /* UITextViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextViews.swift; sourceTree = "<group>"; };
 		481712F728C01B9C00813993 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		481712F928C03B1A00813993 /* TestView-Results.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TestView-Results.swift"; sourceTree = "<group>"; };
 		4897A9D428B82A490029C134 /* LearningApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LearningApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4897A9D728B82A490029C134 /* LearningApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LearningApp.swift; sourceTree = "<group>"; };
 		4897A9D928B82A490029C134 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				481712EC28BFDC4100813993 /* ContentView-Details.swift */,
 				481712F528BFF53000813993 /* UITextViews.swift */,
 				481712F728C01B9C00813993 /* TestView.swift */,
+				481712F928C03B1A00813993 /* TestView-Results.swift */,
 				481712F328BFE15700813993 /* CustomButton.swift */,
 			);
 			path = Views;
@@ -227,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				481712FA28C03B1A00813993 /* TestView-Results.swift in Sources */,
 				481712F828C01B9C00813993 /* TestView.swift in Sources */,
 				481712F628BFF53000813993 /* UITextViews.swift in Sources */,
 				4897A9DA28B82A490029C134 /* HomeView.swift in Sources */,

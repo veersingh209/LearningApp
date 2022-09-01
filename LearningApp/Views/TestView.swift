@@ -138,7 +138,7 @@ struct TestView: View {
             .padding()
             
         } else {
-            ProgressView()
+            TestView_Results(numberOfCorrectAnswers: correctAnswerCount)
         }
     }
 }
@@ -161,10 +161,4 @@ extension TestView {
         
     }
     
-}
-
-struct TestView_Previews: PreviewProvider {
-    static var previews: some View {
-        TestView()
-    }
 }
