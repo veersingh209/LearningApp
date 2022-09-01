@@ -77,8 +77,11 @@ class ContentModel: ObservableObject {
                 
                 let modules = try decoder.decode([Module].self, from: data!)
                 
-                self.modules += modules
-                
+                // use main thread
+                DispatchQueue.main.async {
+                    self.modules += modules
+                }
+
             } catch {
                 print("ERROR! Unable to parse remote JSON data")
             }
