@@ -31,12 +31,6 @@ struct ContentView_Details: View {
                 } label: {
                     ZStack {
                         
-                        Rectangle()
-                            .frame(height: 48)
-                            .foregroundColor(.green)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
-                        
                         CustomButton(
                             buttonText: ("Next Lesson: \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)"),
                             buttonColor: Color.green,
@@ -51,12 +45,6 @@ struct ContentView_Details: View {
                     model.selectedContent = nil
                 } label: {
                     ZStack {
-                        
-                        Rectangle()
-                            .frame(height: 48)
-                            .foregroundColor(.green)
-                            .cornerRadius(10)
-                            .shadow(radius: 5)
                         
                         CustomButton(
                             buttonText: ("Next Lesson: \(model.currentModule!.content.lessons[model.currentLessonIndex + 1].title)"),
