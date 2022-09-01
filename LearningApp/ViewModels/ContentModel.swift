@@ -24,11 +24,13 @@ class ContentModel: ObservableObject {
     var styleData: Data?
     
     init() {
-        getJSONData()
+        getJSONDataLocal()
         getStyleData()
+        
+        getJSONDataRemote()
     }
     
-    func getJSONData() {
+    func getJSONDataLocal() {
         
         let urlJSON = Bundle.main.url(forResource: "data", withExtension: "json")
         
@@ -45,6 +47,43 @@ class ContentModel: ObservableObject {
             print("ERROR! Unable to parse JSON data: \(error)")
         }
         
+        
+    }
+    
+    func getJSONDataRemote() {
+        
+        let remoteUrlJSON = Constants.hostedVideoUrl + "data2.json"
+        
+        let url = URL(string: remoteUrlJSON)
+        
+        guard url != nil else {
+            print("ERROR! Unable to fetch remote URL")
+            return
+        }
+        
+        let request = URLRequest(url: url!)
+        
+        let session = URLSession.shared
+        let dataTask = session.dataTask(with: request) { data, response, error in
+            
+            guard error == nil else {
+                print("ERROR! Unable decode remote JSON datsa")
+                return
+            }
+            
+            do {
+                
+                let decoder = JSONDecoder()
+                
+                let modules = try decoder.decode([Module].self, from: data!)
+                
+                self.modules += modules
+                
+            } catch {
+                print("ERROR! Unable to parse remote JSON data")
+            }
+        }
+        dataTask.resume()
         
     }
     
@@ -68,7 +107,7 @@ class ContentModel: ObservableObject {
         for index in 0..<modules.count {
             
             if modules[index].id == moduleid {
-            
+                
                 currentModuleIndex = index
                 break
             }
@@ -150,13 +189,13 @@ class ContentModel: ObservableObject {
         
         do {
             let attributedString = try NSAttributedString(data: data, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
-                
-                finalString = attributedString
+            
+            finalString = attributedString
             
         } catch {
             print("Error: Unable to create attributed string for lesson description")
         }
-
+        
         return finalString
     }
     
