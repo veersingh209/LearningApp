@@ -13,9 +13,7 @@ struct ContentView_RowCard: View {
     var index: Int
     
     var body: some View {
-        
-        let lesson = model.currentModule!.content.lessons[index]
-        
+                
         ZStack (alignment: .leading) {
             
             Rectangle()
@@ -40,6 +38,16 @@ struct ContentView_RowCard: View {
             .padding()
         }
         
+    }
+}
+
+extension ContentView_RowCard {
+    var lesson: Lessons {
+        if model.currentModule != nil && index < model.currentModule!.content.lessons.count {
+            return model.currentModule!.content.lessons[index]
+        } else {
+            return Lessons(id: 0, title: " ", video: " ", duration: " ", explanation: " ")
+        }
     }
 }
 
