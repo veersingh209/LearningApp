@@ -21,6 +21,7 @@ struct TestView: View {
             
             VStack(alignment: .leading) {
                 
+                // Question count
                 HStack(spacing: 0.0) {
                     Text("Question ")
                     Text("\(model.currentTestIndex + 1)")
@@ -30,8 +31,10 @@ struct TestView: View {
                         .bold()
                 }
                 
+                // Question
                 UITextViews()
                 
+                // Question answers
                 ScrollView {
                     
                     VStack {
@@ -104,15 +107,30 @@ struct TestView: View {
                     
                 }
                 
+                // Submit button
                 Button {
-                    answerSubmitted = true
-                    if selectedAnswer == model.currentQuestion!.correctIndex {
-                        correctAnswerCount += 1
+                    // Move to next question
+                    if answerSubmitted {
+                        model.nextTestQuestion()
+                        
+                        answerSubmitted = false
+                        selectedAnswer = nil
+                    } else {
+                        // Show answer
+                        answerSubmitted = true
+                        if selectedAnswer == model.currentQuestion!.correctIndex {
+                            correctAnswerCount += 1
+                        }
+                        
                     }
                 } label: {
-                    CustomButton(buttonText: "Submit", buttonColor: .green, buttonTextColor: (selectedAnswer == nil || answerSubmitted ? .gray : .white))
+                    CustomButton(
+                        buttonText: submitButtonText,
+                        buttonColor: .green,
+                        buttonTextColor: (selectedAnswer == nil ? .gray : .white)
+                    )
                 }
-                .disabled(selectedAnswer == nil || answerSubmitted)
+                .disabled(selectedAnswer == nil)
                 
                 
             }
@@ -123,6 +141,26 @@ struct TestView: View {
             ProgressView()
         }
     }
+}
+
+extension TestView {
+    
+    var submitButtonText: String {
+        
+        if answerSubmitted {
+            // Last question
+            if model.currentTestIndex + 1 == model.currentModule!.test.questions.count {
+                return "Finish"
+            } else {
+                return "Next"
+            }
+            
+        } else {
+            return "Submit"
+        }
+        
+    }
+    
 }
 
 struct TestView_Previews: PreviewProvider {
